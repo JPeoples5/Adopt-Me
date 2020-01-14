@@ -1,9 +1,10 @@
 {
-  "name": "Adopt-Me",
+  "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"src/**/*.{js}\" --quiet"
   },
@@ -14,6 +15,11 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.19.1",
+    "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
