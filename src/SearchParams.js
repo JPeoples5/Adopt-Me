@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
 //Parcel reaches out to FEM and installs {ANIMALS}
 import { ANIMALS } from "@frontendmasters/pet";
+import useDropdown from "./useDropdown";
 
 const SearchParams = () => {
   //this is a hook, all begin with 'use'| useState always give back an array
   //never use hooks inside loops
   const [location, setLocation] = useState("Seattle, WA");
-  const [animal, setAnimal] = useState("dog");
+  //const [animal, setAnimal] = useState("dog");
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
+  // const [breed, setBreed] = useState(""); ||||| Used thisway before useDropdown component
+  const [breed, BreedDropdown] = useDropdown("Breed", "", breeds);
+  const [breeds, setBreeds] = useState([]);
 
   return (
     <div className="search-params">
@@ -21,21 +26,9 @@ const SearchParams = () => {
             onChange={e => setLocation(e.target.value)}
           />
         </label>
-        <label htmlFor="animal">
-          Animal
-          <select
-            id="animal"
-            value={animal}
-            onChange={e => setAnimal(e.target.value)}
-            onBlur={e => setAnimal(e.target.value)}
-          >
-            <option>All</option>
-            {/* no curly of arrowFunc means theres an implicit return */}
-            {ANIMALS.map(animal => (
-              <option value={animal}>{animal}</option>
-            ))}
-          </select>
-        </label>
+        {/* <BreedDropdown /> */}
+        {/* <AnimalDropdown /> */}
+
         <button>Submit</button>
       </form>
     </div>
